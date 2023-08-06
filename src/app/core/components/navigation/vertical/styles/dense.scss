@@ -1,0 +1,40 @@
+@import '../../../../../shared/scss/sindikati/theme.scss';
+
+app-navigation {
+  &.folded:not(.unfolded) {
+    app-vertical-item,
+    app-vertical-collapsable,
+    app-vertical-group {
+      .nav-link-wrapper {
+        margin: 0;
+        padding: 10px 14px;
+        .nav-link {
+          padding: 0;
+          .nav-link-icon {
+            font-size: 20px;
+          }
+        }
+        .nav-link-title-wrapper {
+          display: none;
+        }
+      }
+    }
+
+    app-vertical-collapsable {
+      .nav-link-children {
+        .nav-link {
+          padding-left: 2px;
+          .nav-link-wrapper {
+            padding: 10px 14px;
+            .nav-link {
+              padding: 0;
+              .nav-link-icon {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

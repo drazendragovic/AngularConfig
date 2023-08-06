@@ -1,0 +1,28 @@
+:host {
+  .folded:not(.unfolded) & {
+    > .group-title {
+      align-items: center;
+
+      > span {
+        display: none;
+        transition: display 200ms ease;
+      }
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        min-width: 1.6rem;
+        border-top: 2px solid;
+        opacity: 0.2;
+      }
+    }
+  }
+}
+
+.group-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}

@@ -1,0 +1,31 @@
+<div class="nav" [ngClass]="{ vertical: layout === 'vertical' }">
+  <div class="nav-content">
+    <!-- Vertical Navigation Layout -->
+
+    <ng-container *ngFor="let item of navigation">
+      <!-- Skip the hidden items -->
+      <ng-container *ngIf="(item.hidden && !item.hidden(item)) || !item.hidden">
+        <!-- Basic -->
+        <ng-container *ngIf="item.type === 'item'">
+          <app-vertical-item [item]="item"> </app-vertical-item>
+        </ng-container>
+
+        <!-- Collapsable -->
+        <ng-container *ngIf="item.type === 'collapsable'">
+          <app-vertical-collapsable [item]="item" [autoCollapse]="autoCollapse"></app-vertical-collapsable>
+        </ng-container>
+
+        <!-- Group -->
+        <ng-container *ngIf="item.type === 'group'">
+          <app-vertical-group [item]="item" [autoCollapse]="autoCollapse"></app-vertical-group>
+        </ng-container>
+
+        <!-- Spacer -->
+        <ng-container *ngIf="item.type === 'spacer'">
+          <app-vertical-spacer [item]="item"></app-vertical-spacer>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+    <!-- / Vertical Navigation Layout -->
+  </div>
+</div>

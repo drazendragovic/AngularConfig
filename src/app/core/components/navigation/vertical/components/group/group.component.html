@@ -1,0 +1,59 @@
+<!-- Group wrapper -->
+<div class="nav-link-wrapper" [class.vertical-navigation-item-has-subtitle]="!!item.subtitle" [ngClass]="item.classes">
+  <div class="nav-link">
+    <!-- Icon -->
+    <ng-container *ngIf="item.icon">
+      <fa-icon *ngIf="item.icon" class="nav-link-icon" [ngClass]="item.classes?.icon" [icon]="['fas', item.icon]"></fa-icon>
+    </ng-container>
+
+    <!-- Title & Subtitle -->
+    <div class="nav-link-title-wrapper">
+      <div class="nav-link-title">
+        <span [ngClass]="item.classes?.title">
+          {{ item.title }}
+        </span>
+      </div>
+      <ng-container *ngIf="item.subtitle">
+        <div class="nav-link-subtitle">
+          <span [ngClass]="item.classes?.subtitle">
+            {{ item.subtitle }}
+          </span>
+        </div>
+      </ng-container>
+    </div>
+
+    <!-- Badge -->
+    <ng-container *ngIf="item.badge">
+      <div class="nav-link-badge">
+        <div class="nav-link-badge-content" [ngClass]="item.badge.classes">
+          {{ item.badge.title }}
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<ng-container *ngFor="let item of item.children">
+  <!-- Skip the hidden items -->
+  <ng-container *ngIf="(item.hidden && !item.hidden(item)) || !item.hidden">
+    <!-- Basic -->
+    <ng-container *ngIf="item.type === 'item'">
+      <app-vertical-item [item]="item"></app-vertical-item>
+    </ng-container>
+
+    <!-- Collapsable -->
+    <ng-container *ngIf="item.type === 'collapsable'">
+      <app-vertical-collapsable [item]="item" [autoCollapse]="autoCollapse"></app-vertical-collapsable>
+    </ng-container>
+
+    <!-- Group -->
+    <ng-container *ngIf="item.type === 'group'">
+      <app-vertical-group [item]="item"></app-vertical-group>
+    </ng-container>
+
+    <!-- Spacer -->
+    <ng-container *ngIf="item.type === 'spacer'">
+      <app-vertical-spacer [item]="item"></app-vertical-spacer>
+    </ng-container>
+  </ng-container>
+</ng-container>

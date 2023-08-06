@@ -1,0 +1,90 @@
+<div class="nav-link-wrapper" [class.nav-item-has-subtitle]="!!item.subtitle" [ngClass]="item.classes">
+  <!-- item.url -->
+  <ng-container *ngIf="item.url && !item.externalUrl && !item.function && !item.disabled">
+    <a class="nav-link" [ngClass]="{ 'nav-link-active-forced': item.active }" [routerLink]="[item.url]" [routerLinkActive]="'nav-link-active'" [routerLinkActiveOptions]="isActiveMatchOptions">
+      <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+    </a>
+  </ng-container>
+
+  <!-- item.externalUrl -->
+  <ng-container *ngIf="item.url && item.externalUrl && !item.function && !item.disabled">
+    <a class="nav-link" [ngClass]="item.classes" [href]="item.url" [target]="item.openInNewTab ? '_blank' : '_self'">
+      <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+    </a>
+  </ng-container>
+
+  <!-- item.function -->
+  <ng-container *ngIf="!item.url && item.function && !item.disabled">
+    <div class="nav-link" [ngClass]="{ 'nav-link-active-forced': item.active }" (click)="item.function(item)">
+      <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+    </div>
+  </ng-container>
+
+  <!-- item.url && item.function -->
+  <ng-container *ngIf="item.url && !item.externalUrl && item.function && !item.disabled">
+    <a
+      class="nav-link"
+      [ngClass]="{ 'nav-link-active-forced': item.active }"
+      [routerLink]="[item.url]"
+      [routerLinkActive]="'nav-link-active'"
+      [routerLinkActiveOptions]="isActiveMatchOptions"
+      (click)="item.function(item)"
+    >
+      <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+    </a>
+  </ng-container>
+
+  <!-- item.externalUrl && item.function -->
+  <ng-container *ngIf="item.url && item.externalUrl && item.function && !item.disabled">
+    <a class="nav-link" [href]="item.url" [target]="item.openInNewTab ? '_blank' : '_self'" (click)="item.function(item)">
+      <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+    </a>
+  </ng-container>
+
+  <!-- Item with a no link and no function -->
+  <ng-container *ngIf="!item.url && !item.function && !item.disabled">
+    <div class="nav-link" [ngClass]="{ 'nav-link-active-forced': item.active }">
+      <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+    </div>
+  </ng-container>
+
+  <!-- Item is disabled -->
+  <ng-container *ngIf="item.disabled">
+    <div class="nav-link nav-link-disabled">
+      <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+    </div>
+  </ng-container>
+
+  <!-- Item template -->
+  <ng-template #itemTemplate>
+    <!-- Icon -->
+    <ng-container *ngIf="item.icon">
+      <fa-icon *ngIf="item.icon" class="nav-link-icon" [ngClass]="item.classes?.icon" [icon]="['fas', item.icon]"></fa-icon>
+    </ng-container>
+
+    <!-- Title & Subtitle -->
+    <div class="nav-link-title-wrapper">
+      <div class="nav-link-title">
+        <span [ngClass]="item.classes?.title">
+          {{ item.title }}
+        </span>
+      </div>
+      <ng-container *ngIf="item.subtitle">
+        <div class="nav-link-subtitle">
+          <span [ngClass]="item.classes?.subtitle">
+            {{ item.subtitle }}
+          </span>
+        </div>
+      </ng-container>
+    </div>
+
+    <!-- Badge -->
+    <ng-container *ngIf="item.badge">
+      <div class="nav-link-badge">
+        <div class="nav-link-badge-content" [ngClass]="item.badge.classes">
+          {{ item.badge.title }}
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</div>
