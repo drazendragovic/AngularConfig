@@ -1,0 +1,38 @@
+@import '../../../../shared/scss/sindikati/theme.scss';
+
+app-toolbar {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  z-index: 4;
+
+  p-toolbar {
+    position: relative;
+    background: inherit !important;
+    color: inherit !important;
+    width: 100%;
+
+    .p-button-secondary {
+      color: $whiteColor !important;
+      padding: 1.1rem;
+    }
+
+    .p-button-secondary:enabled:focus,
+    .p-button-secondary:enabled:active {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    .logo-nav {
+      width: 70%;
+      display: flex;
+      align-items: center;
+      color: $whiteColor;
+      text-decoration: none;
+
+      .logo-title {
+        padding-left: 1rem;
+      }
+    }
+  }
+}

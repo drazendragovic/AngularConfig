@@ -1,0 +1,29 @@
+<div id="main">
+  <!-- TOOLBAR -->
+  <ng-container>
+    <app-toolbar></app-toolbar>
+  </ng-container>
+  <!-- / TOOLBAR -->
+  <div id="container1" class="container">
+    <!-- NAVBAR: Left -->
+    <ng-container>
+      <app-sidebar name="navbar" class="navbar-sidebar" [folded]="true" lockedOpen="gt-md">
+        <app-navbar [variant]="'vertical'" class="left-navbar"></app-navbar>
+      </app-sidebar>
+    </ng-container>
+    <!-- / NAVBAR: Left -->
+
+    <div id="container2" class="container">
+      <div id="container3" class="container">
+        <!-- CONTENT -->
+        <app-content></app-content>
+        <!-- / CONTENT -->
+      </div>
+      <!-- FOOTER: Below -->
+      <ng-container>
+        <app-footer></app-footer>
+      </ng-container>
+      <!-- / FOOTER: Below -->
+    </div>
+  </div>
+</div>

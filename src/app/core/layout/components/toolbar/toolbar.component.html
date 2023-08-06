@@ -1,0 +1,13 @@
+<p-toolbar class="shadow-3">
+  <div class="p-toolbar-group-start">
+    <a class="logo-nav" [routerLink]="['/home']">
+      <img class="logo-icon" src="../../../../../assets/images/logo/sindikat_logo.svg" alt="Sindikati logo" width="50" />
+      <div class="logo-title">Sindikat državnih i lokalnih službenika i namještenika</div>
+    </a>
+  </div>
+  <div class="p-toolbar-group-end">
+    <p-menu #menu [model]="items" [popup]="true"></p-menu>
+    <p-button label="Registrirani korisnik" styleClass="p-button-secondary p-button-text" icon="pi pi-chevron-down" iconPos="right" (click)="menu.toggle($event)"></p-button>
+    <fa-icon [icon]="userCircle" size="2x"></fa-icon>
+  </div>
+</p-toolbar>
