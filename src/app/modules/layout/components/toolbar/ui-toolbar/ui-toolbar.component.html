@@ -1,0 +1,41 @@
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+    <ng-container *ngFor="let btn of model?.leftGroup">
+      <ng-container *ngTemplateOutlet="buttonTemplate; context: { btn: btn }"></ng-container>
+    </ng-container>
+  </div>
+  <div class="p-toolbar-group-right fa">
+    <ng-container *ngFor="let btn of model?.rightGroup">
+      <ng-container *ngTemplateOutlet="buttonTemplate; context: { btn: btn }"></ng-container>
+    </ng-container>
+  </div>
+</p-toolbar>
+
+<ng-template #buttonTemplate let-btn="btn">
+  <button
+    (click)="btn.onClick ? btn.onClick($event) : onClick(btn)"
+    *ngIf="(btn.hidden ? !btn.hidden() : true) && !btn.subButtons?.length"
+    [class]="getButtonStyle(btn)"
+    [disabled]="btn.disabled ? btn.disabled() : false"
+    [icon]="getButtonIcon(btn)"
+    [label]="showLabel(btn) ? btn.label : ''"
+    [pTooltip]="btn.tooltipText ? btn.tooltipText : btn.label"
+    pButton
+    pRipple
+    type="button"
+    tooltipPosition="top"
+  ></button>
+  <p-splitButton
+    (onClick)="btn.onClick ? btn.onClick($event) : onClick(btn)"
+    *ngIf="(btn.hidden ? !btn.hidden() : true) && btn.subButtons?.length"
+    [class]="getButtonStyle(btn)"
+    [disabled]="btn.disabled ? btn.disabled() : false"
+    [icon]="getButtonIcon(btn)"
+    [label]="showLabel(btn) ? btn.label : ''"
+    [model]="btn.subButtons"
+    type="button"
+    [pTooltip]="btn.tooltipText ? btn.tooltipText : btn.label"
+    tooltipPosition="top"
+  >
+  </p-splitButton>
+</ng-template>

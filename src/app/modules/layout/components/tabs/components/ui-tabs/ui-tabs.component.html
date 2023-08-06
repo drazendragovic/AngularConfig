@@ -1,0 +1,9 @@
+<p-tabView [activeIndex]="activeIndex" (onChange)="onTabChange($event)">
+  <ng-container *ngFor="let tab of configuration?.tabs; let i = index">
+    <p-tabPanel [header]="tab.label" *ngIf="tab.hidden ? !tab.hidden() : true" [cache]="tab.cache ? tab.cache() : true">
+      <ng-template pTemplate="content">
+        <f-dynamic-host [componentInfo]="tab"></f-dynamic-host>
+      </ng-template>
+    </p-tabPanel>
+  </ng-container>
+</p-tabView>

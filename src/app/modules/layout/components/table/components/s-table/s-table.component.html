@@ -1,0 +1,145 @@
+<p-table
+  (onColReorder)="markStateForPersisting()"
+  (onColResize)="markStateForPersisting()"
+  (onLazyLoad)="onLazyLoad($event)"
+  (onRowSelect)="onSelectionChanged()"
+  (onRowUnselect)="onSelectionChanged()"
+  [(first)]="skip"
+  [(rows)]="take"
+  [(selection)]="selection"
+  [autoLayout]="autoLayout"
+  [columns]="configuration.columns ? configuration.columns : []"
+  [currentPageReportTemplate]="configuration.paginatorOptions ? configuration.paginatorOptions.currentPageReportTemplate : ''"
+  [lazy]="true"
+  [loading]="loading$ | async"
+  [paginator]="configuration.paginatorOptions ? true : false"
+  [reorderableColumns]="true"
+  [resizableColumns]="resizableColumns"
+  [rowsPerPageOptions]="configuration.paginatorOptions ? configuration.paginatorOptions.rowsPerPageOptions : []"
+  [scrollHeight]="scrollHeight"
+  [scrollable]="scrollable"
+  [attr.selectionMode]="selectionMode !== 'single' ? selectionMode : null"
+  [showCurrentPageReport]="configuration.paginatorOptions && total ? configuration.paginatorOptions.showCurrentPageReport : false"
+  [sortField]="sortField"
+  [sortOrder]="sortOrder"
+  [totalRecords]="total$ | async"
+  [value]="data$ | async"
+  responsiveLayout="stack"
+  [breakpoint]="'960px'"
+  columnResizeMode="expand"
+  dataKey="id"
+  styleClass="p-datatable-sm"
+>
+  <ng-template let-columns pTemplate="header">
+    <tr>
+      <th *ngIf="hasTemplate('rowexpansion')" class="f-column-header" style="flex: '0 0 4rem'"></th>
+      <th *ngIf="selectionMode === 'single'" class="f-column-header" style="flex: '0 0 2rem'"></th>
+      <th *ngIf="checkBoxSelection" id="HeaderCheckBox" class="f-column-header" style="flex: '0 0 2rem'">
+        <p-tableHeaderCheckbox (click)="onSelectionChanged()" *ngIf="!hasTemplate('tableHeaderCheckbox')" pTooltip="Odaberi sve na ovoj stranici"></p-tableHeaderCheckbox>
+        <ng-container *ngIf="hasTemplate('tableHeaderCheckbox')" [ngTemplateOutlet]="getTemplate('tableHeaderCheckbox')"></ng-container>
+      </th>
+      <th *ngIf="rowActionsLeft.length > 0" [style]="'flex: 0 0 ' + rowActionWidthLeft + 'rem;' + 'width:' + rowActionWidthLeft + 'rem;'" class="f-column-header f-column-action-buttons">
+        {{ configuration.actionHeaderLeft }}
+      </th>
+      <ng-container *ngFor="let col of columns">
+        <th
+          [ngClass]="'f-column-header ' + (col.styleClass ? col.styleClass(null) : '')"
+          [pResizableColumnDisabled]="col.disableResize === true"
+          [pSortableColumnDisabled]="!col.sortable"
+          [pSortableColumn]="col.field"
+          pReorderableColumn
+          pResizableColumn
+        >
+          {{ col.header }}
+          <p-sortIcon *ngIf="col.sortable" [field]="col.field"></p-sortIcon>
+        </th>
+      </ng-container>
+      <th *ngIf="rowActionsRight.length > 0" [style]="'flex: 0 0 ' + rowActionWidthRight + 'rem;' + 'width:' + rowActionWidthRight + 'rem;'" class="f-column-header f-column-action-buttons">
+        {{ configuration.actionHeaderRight }}
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template let-columns="columns" let-expanded="expanded" let-rowData let-rowIndex="rowIndex" pTemplate="body">
+    <tr
+      (click)="onRowClick($event, rowData)"
+      [ngClass]="configuration.rowStyleClass ? configuration.rowStyleClass(rowData) : ''"
+      [pSelectableRow]="selectionMode === 'single' ? rowData : undefined"
+      [pSelectableRowDisabled]="selectionMode !== 'single' ? true : false"
+      [pTooltip]="configuration.rowTooltip ? configuration.rowTooltip.text(rowData) : ''"
+      [tooltipDisabled]="configuration.rowTooltip ? false : true"
+      [tooltipPosition]="configuration.rowTooltip ? configuration.rowTooltip.position : 'top'"
+    >
+      <td *ngIf="hasTemplate('rowexpansion')" style="flex: '0 0 4rem'">
+        <button
+          *ngIf="configuration.showRowExpansion ? configuration.showRowExpansion(rowData) : true"
+          [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+          [pRowToggler]="rowData"
+          class="p-button-text p-button-rounded p-button-plain"
+          pButton
+          pRipple
+          type="button"
+        ></button>
+      </td>
+      <td *ngIf="selectionMode === 'single'">
+        <p-tableRadioButton [value]="rowData"></p-tableRadioButton>
+      </td>
+      <td *ngIf="checkBoxSelection" style="flex: '0 0 2rem'">
+        <p-tableCheckbox (click)="$event.stopImmediatePropagation()" [value]="rowData"></p-tableCheckbox>
+      </td>
+      <td *ngIf="rowActionsLeft.length > 0" [style]="'flex: 0 0 ' + rowActionWidthLeft + 'rem'" class="f-column-action-buttons">
+        <ng-container *ngFor="let action of rowActionsLeft">
+          <ng-template *ngTemplateOutlet="actionButton; context: { action: action, rowData: rowData }"></ng-template>
+        </ng-container>
+      </td>
+      <td
+        *ngFor="let col of columns"
+        [ngClass]="'column-value ' + (col.styleClass ? col.styleClass(rowData) : '')"
+        [pTooltip]="col.tooltip ? col.tooltip.text(rowData) : ''"
+        [tooltipDisabled]="col.tooltip ? false : true"
+        [tooltipPosition]="col.tooltip ? col.tooltip.position : 'top'"
+      >
+        <ng-container [ngSwitch]="true">
+          <span class="column-title">{{ col.header }}</span>
+          <f-dynamic-host *ngSwitchCase="col.componentInfo !== undefined" [componentInfo]="col.componentInfo" [data]="rowData"></f-dynamic-host>
+          <ng-container *ngSwitchCase="col.templateName !== undefined" [ngTemplateOutletContext]="{ $implicit: rowData, rowIndex: rowIndex }" [ngTemplateOutlet]="getTemplate(col.templateName)">
+          </ng-container>
+          <div *ngSwitchDefault>{{ col.format ? col.format(rowData[col.field]) : rowData[col.field] }}</div>
+        </ng-container>
+      </td>
+      <td *ngIf="rowActionsRight.length > 0" [style]="'flex: 0 0 ' + rowActionWidthRight + 'rem'" class="f-column-action-buttons">
+        <div class="table-btn-right-inline">
+          <ng-container *ngFor="let action of rowActionsRight">
+            <ng-template *ngTemplateOutlet="actionButton; context: { action: action, rowData: rowData }"></ng-template>
+          </ng-container>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+
+  <ng-template *ngIf="hasTemplate('footer')" let-columns pTemplate="footer">
+    <ng-container [ngTemplateOutletContext]="{ $implicit: columns }" [ngTemplateOutlet]="getTemplate('footer')"> </ng-container>
+  </ng-template>
+
+  <ng-template *ngIf="hasTemplate('summary')" let-columns pTemplate="summary">
+    <ng-container [ngTemplateOutletContext]="{ $implicit: columns }" [ngTemplateOutlet]="getTemplate('summary')"> </ng-container>
+  </ng-template>
+
+  <ng-template *ngIf="hasTemplate('rowexpansion')" let-columns="columns" let-expanded="expanded" let-rowData let-rowIndex="rowIndex" pTemplate="rowexpansion">
+    <ng-container [ngTemplateOutletContext]="{ $implicit: rowData, columns: columns, rowIndex: rowIndex, expanded: expanded }" [ngTemplateOutlet]="getTemplate('rowexpansion')"> </ng-container>
+  </ng-template>
+
+  <ng-template #actionButton let-action="action" let-rowData="rowData">
+    <ng-container *ngIf="action.visible ? action.visible(rowData) : true">
+      <button
+        (click)="action.action($event, rowData)"
+        [class]="getButtonClass(action)"
+        [icon]="action.icon"
+        [pTooltip]="action.label"
+        [tooltipPosition]="action.tooltipPosition"
+        pButton
+        pRipple
+      ></button>
+    </ng-container>
+  </ng-template>
+</p-table>
