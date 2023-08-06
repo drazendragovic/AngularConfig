@@ -1,0 +1,8 @@
+p-autoComplete {
+  width: 100%;
+}
+:host ::ng-deep {
+  .p-inputgroup .p-inputwrapper .p-autocomplete {
+    width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+.f-fileupload-row {
+  display: flex;
+  align-items: center;
+
+  div {
+    width: 25%;
+  }
+
+  div.f-fileupload-filename {
+    width: 75%;
+  }
+}

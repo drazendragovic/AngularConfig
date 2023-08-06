@@ -1,0 +1,5 @@
+<s-edit-control-container [actions]="actions" [label]="label" [required]="formControlRequired() || required" [floatingLabel]="floatingLabel">
+  <ng-template pTemplate="control">
+    <p-calendar [formControl]="formControl" [dateFormat]="format" [minDate]="minDate" [maxDate]="maxDate" (ngModelChange)="onChanged($event)" (blur)="onTouched()" appendTo="body"> </p-calendar>
+  </ng-template>
+</s-edit-control-container>

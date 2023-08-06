@@ -1,0 +1,14 @@
+p-multiSelect {
+  width: inherit;
+}
+div.dropdown-columns {
+  width: 100%;
+}
+p-multiSelect > div.p-multiselect {
+  min-width: 200px;
+}
+:host ::ng-deep {
+  .p-inputgroup .p-inputwrapper .p-multiselect {
+    width: 100%;
+  }
+}

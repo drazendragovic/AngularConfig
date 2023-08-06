@@ -1,0 +1,8 @@
+p-dropdown {
+  width: 100%;
+}
+:host ::ng-deep {
+  .p-inputgroup .p-inputwrapper .p-dropdown {
+    width: 100%;
+  }
+}

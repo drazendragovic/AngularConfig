@@ -1,0 +1,15 @@
+<s-edit-control-container [actions]="actions" [label]="label" [required]="formControlRequired() || required" [floatingLabel]="floatingLabel">
+  <ng-template pTemplate="control">
+    <ui-inputNumber
+      [formControl]="formControl"
+      (ngModelChange)="onChanged($event)"
+      (blur)="onTouched()"
+      locale="hr"
+      [minFractionDigits]="minFractionDigits"
+      [maxFractionDigits]="maxFractionDigits"
+      [useGrouping]="useGrouping"
+      [min]="min"
+      [max]="max"
+    ></ui-inputNumber>
+  </ng-template>
+</s-edit-control-container>

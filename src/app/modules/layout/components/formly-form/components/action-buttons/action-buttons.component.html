@@ -1,0 +1,18 @@
+<div class="p-inputgroup">
+  <ng-container *ngFor="let action of actions">
+    <ng-container *ngIf="action.visible ? action.visible() : true">
+      <button
+        type="button"
+        pButton
+        pRipple
+        [icon]="action.icon"
+        [pTooltip]="action.label"
+        [tooltipPosition]="action.tooltipPosition ?? 'left'"
+        [class]="actionClass(action)"
+        (click)="action.action($event)"
+      >
+        <span *ngIf="action.showLabel">{{ action.label }}</span>
+      </button>
+    </ng-container>
+  </ng-container>
+</div>

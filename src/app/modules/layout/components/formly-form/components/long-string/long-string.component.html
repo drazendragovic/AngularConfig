@@ -1,0 +1,6 @@
+<s-edit-control-container [actions]="actions" [label]="label" [required]="formControlRequired() || required" [floatingLabel]="floatingLabel">
+  <ng-template pTemplate="control">
+    <textarea pInputTextarea [maxLength]="maxLen" [pattern]="pattern" [rows]="rws" [autoResize]="autoResize" [formControl]="formControl" (ngModelChange)="onChanged($event)" (blur)="onTouched()">
+    </textarea>
+  </ng-template>
+</s-edit-control-container>

@@ -1,0 +1,34 @@
+<div #dropdown>
+  <s-edit-control-container [actions]="actions" [label]="label" [required]="formControlRequired() || required" [floatingLabel]="floatingLabel">
+    <ng-template pTemplate="control">
+      <p-dropdown
+        [formControl]="formControl"
+        [showClear]="!(required || isRequired) && !hideClear"
+        [options]="dataSource.data$ | async"
+        [optionLabel]="dataSource.displayField"
+        [optionValue]="dataSource.valueField"
+        [autoDisplayFirst]="false"
+        [emptyFilterMessage]="emptyFilterMessage"
+        [emptyMessage]="emptyFilterMessage"
+        (ngModelChange)="onChanged($event)"
+        (blur)="onTouched()"
+        appendTo="body"
+        [panelStyleClass]="panelStyleClass"
+        [filter]="isFiltered"
+        (onClick)="onClick()"
+        [virtualScroll]="virtualScroll"
+        [itemSize]="30"
+        [showTransitionOptions]="'0ms'"
+        [hideTransitionOptions]="'0ms'"
+      >
+        <ng-template let-item pTemplate="item">
+          <div class="grid">
+            <div *ngFor="let col of dropdownColumns" [class]="dropdownClass(col)" class="dropdown-column">
+              <div id="dropdown-column-item">{{ item[col.field] }}</div>
+            </div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </ng-template>
+  </s-edit-control-container>
+</div>

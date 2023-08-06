@@ -1,0 +1,21 @@
+<div class="field">
+  <label>{{ label }}<span *ngIf="required" class="required-label-asterisk">*</span></label>
+  <p-fileUpload [chooseLabel]="chooseLabel" [disabled]="disabled" [multiple]="multiple" [showCancelButton]="false" [showUploadButton]="false" accept="{{ accept }}" name="myfile[]">
+    <ng-template pTemplate="content">
+      <div *ngIf="uploadedFiles$ | async as uplFiles">
+        <div *ngFor="let file of uplFiles" class="f-fileupload-row">
+          <div class="f-fileupload-filename">
+            {{ getFileName(file) }}
+          </div>
+          <div *ngIf="actionsVisible(actions, file)">
+            <ng-container *ngFor="let action of actions">
+              <ng-container *ngIf="action.visible ? action.visible(file) : true">
+                <button (click)="action.action($event, file)" [class]="actionClass(action)" [icon]="action.icon" [pTooltip]="action.label" pButton pRipple></button>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-fileUpload>
+</div>

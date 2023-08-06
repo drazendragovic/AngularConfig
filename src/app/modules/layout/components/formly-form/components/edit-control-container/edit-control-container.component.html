@@ -1,0 +1,30 @@
+<ng-container *ngIf="actions?.length">
+  <ng-container *ngIf="floatingLabel">
+    <div class="p-inputgroup">
+      <span class="p-float-label">
+        <ng-container [ngTemplateOutlet]="getTemplate('control')"></ng-container>
+        <label>{{ label }}<span *ngIf="required" class="required-label-asterisk">*</span></label>
+      </span>
+      <s-actions [actions]="actions"></s-actions>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!floatingLabel">
+    <label>{{ label }}<span *ngIf="required" class="required-label-asterisk">*</span></label>
+    <div class="p-inputgroup">
+      <ng-container [ngTemplateOutlet]="getTemplate('control')"></ng-container>
+      <s-actions [actions]="actions"></s-actions>
+    </div>
+  </ng-container>
+</ng-container>
+<ng-container *ngIf="!actions?.length">
+  <ng-container *ngIf="floatingLabel">
+    <span class="p-float-label">
+      <ng-container [ngTemplateOutlet]="getTemplate('control')"></ng-container>
+      <label>{{ label }}<span *ngIf="required" class="required-label-asterisk">*</span></label>
+    </span>
+  </ng-container>
+  <ng-container *ngIf="!floatingLabel">
+    <label>{{ label }}<span *ngIf="required" class="required-label-asterisk">*</span></label>
+    <ng-container [ngTemplateOutlet]="getTemplate('control')"></ng-container>
+  </ng-container>
+</ng-container>

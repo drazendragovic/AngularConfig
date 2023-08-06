@@ -1,0 +1,47 @@
+<ng-container *ngIf="props['inlineForm']">
+  <div *ngFor="let field of field.fieldGroup; let i = index" class="detail-form grid">
+    <div class="col">
+      <formly-field [field]="field"></formly-field>
+    </div>
+    <div class="col-fixed detail-form-remove">
+      <button
+        (click)="remove(i, props['onRemove'])"
+        [icon]="trashIcon"
+        *ngIf="formState !== readOnlyState"
+        [label]="props['removeText']"
+        class="p-button-text p-button-danger"
+        pButton
+        pRipple
+        type="button"
+      ></button>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!props['inlineForm']">
+  <div *ngFor="let field of field.fieldGroup; let i = index" class="detail-form">
+    <formly-field [field]="field" class="col"></formly-field>
+    <button
+      (click)="remove(i, props['onRemove'])"
+      [icon]="trashIcon"
+      [label]="props['removeText']"
+      *ngIf="formState !== readOnlyState"
+      class="p-button-text p-button-danger p-detail-form-button"
+      pButton
+      pRipple
+      type="button"
+    ></button>
+    <p-divider></p-divider>
+  </div>
+</ng-container>
+
+<button
+  (click)="add(undefined, props['newItemFactory'] !== undefined ? props['newItemFactory()'] : {})"
+  [icon]="plusIcon"
+  *ngIf="formState !== readOnlyState"
+  [label]="props['addText']"
+  class="p-button-outlined p-detail-form-button"
+  pButton
+  pRipple
+  type="button"
+></button>

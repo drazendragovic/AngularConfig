@@ -1,0 +1,27 @@
+<s-edit-control-container [actions]="actions" [label]="label" [required]="formControlRequired() || required" [floatingLabel]="floatingLabel">
+  <ng-template pTemplate="control">
+    <p-autoComplete
+      [formControl]="formControl"
+      [multiple]="true"
+      [suggestions]="dataSource.data$ | async"
+      [field]="dataSource.displayField"
+      [dataKey]="dataSource.valueField"
+      [forceSelection]="true"
+      (completeMethod)="search($event)"
+      [minLength]="minLength"
+      [delay]="500"
+      [emptyMessage]="emptyMessage"
+      (ngModelChange)="onChanged($event)"
+      (blur)="onTouched()"
+      appendTo="body"
+    >
+      <ng-template let-item pTemplate="item">
+        <div class="grid">
+          <div *ngFor="let col of dropdownColumns" [class]="dropdownClass(col)" class="dropdown-column">
+            {{ item[col.field] }}
+          </div>
+        </div>
+      </ng-template>
+    </p-autoComplete>
+  </ng-template>
+</s-edit-control-container>
