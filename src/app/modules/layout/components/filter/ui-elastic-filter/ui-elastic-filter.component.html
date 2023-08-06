@@ -1,0 +1,13 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(model)">
+  <p-toolbar>
+    <div class="p-toolbar-group-left">
+      <formly-form [form]="form" [fields]="fields" [model]="model" class="formgroup-inline">
+        <button pButton pRipple type="submit" [icon]="searchIcon" class="p-button-rounded p-button-text" pTooltip="Pretraži"></button>
+        <button pButton pRipple type="button" (click)="onReset()" [icon]="banIcon" class="p-button-rounded p-button-text" pTooltip="Poništi pretragu"></button>
+      </formly-form>
+    </div>
+    <!--    <div class="p-toolbar-group-right">-->
+    <!--      <p-button type="submit" [icon]="filterIcon" pTooltip="Pretraži"></p-button>-->
+    <!--    </div>-->
+  </p-toolbar>
+</form>

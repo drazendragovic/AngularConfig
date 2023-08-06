@@ -1,0 +1,16 @@
+<div class="layout-breadcrumb" style="height: 48px">
+  <div class="breadcrumb">
+    <div class="route-bar-breadcrumb">
+      <li>
+        <a (click)="backClicked()" style="cursor: pointer; font-weight: bold"><fa-icon class="" [icon]="['fas', 'chevron-left']"></fa-icon>&nbsp;NATRAG</a>
+        <span class="pipe">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <a routerLink="/"><fa-icon style="margin-right: 5px; font-size: 0.75rem" [icon]="['fas', 'home']"></fa-icon>Početna</a>
+      </li>
+      <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+      <ng-template #iconTemplate>
+        <fa-icon class="" [icon]="['fas', 'arrow-right']"></fa-icon>
+      </ng-template>
+    </div>
+  </div>
+  <div class="notification"></div>
+</div>
