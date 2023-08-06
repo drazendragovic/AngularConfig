@@ -1,0 +1,102 @@
+import { Navigation } from 'src/app/core/models/navigation';
+
+export const navigation: Navigation[] = [
+  {
+    id: 'applications',
+    type: 'group',
+    classes: 'empty',
+    children: [
+      {
+        id: 'dashboard',
+        title: 'Dashboard',
+        type: 'item',
+        icon: 'chart-line',
+        url: '/',
+        exactMatch: true,
+      },
+      {
+        id: 'clanovi',
+        title: 'Pretraga članova',
+        type: 'item',
+        icon: 'users',
+        url: '/clanovi/pretraga',
+        exactMatch: true,
+      },
+      {
+        id: 'zahtjevi',
+        title: 'Pogodnosti',
+        type: 'collapsable',
+        icon: 'handshake-simple',
+        children: [
+          {
+            id: 'blagajna',
+            title: 'Blagajna uzajamne pomoći',
+            type: 'item',
+            icon: 'hand-holding-dollar',
+            url: '/zahtjevi/uzajamna-pomoc',
+          },
+          {
+            id: 'solidarnost',
+            title: 'Fond solidarnosti',
+            type: 'item',
+            icon: 'hand-holding-medical',
+            url: '/zahtjevi/fond-solidarnosti',
+          },
+          {
+            id: 'pravna',
+            title: 'Pravna pomoć',
+            type: 'item',
+            icon: 'scale-balanced',
+            url: '/zahtjevi/pravna-pomoc',
+          },
+        ],
+      },
+      {
+        id: 'iskaznica',
+        title: 'članska iskaznica',
+        type: 'item',
+        icon: 'address-card',
+        url: '/iskaznica',
+        exactMatch: true,
+      },
+      {
+        id: 'clanarine',
+        title: 'Evidencija članarina',
+        type: 'item',
+        icon: 'chalkboard-user',
+        url: '/clanarine',
+        exactMatch: true,
+      },
+      {
+        id: 'sifarnici',
+        title: 'Upravljanje šifarnicima',
+        type: 'item',
+        icon: 'newspaper',
+        url: '/sifarnici',
+        exactMatch: true,
+      },
+      {
+        id: 'space',
+        type: 'spacer',
+      },
+      {
+        id: 'predlosci',
+        title: 'Predlošci evidencije',
+        type: 'item',
+        icon: 'file-pdf',
+        classes: 'absolute bt-70',
+        url: '/predlosci',
+        exactMatch: true,
+      },
+      {
+        id: 'upute',
+        title: 'Korisničke upute',
+        type: 'item',
+        icon: 'circle-info',
+        classes: 'absolute bt-25',
+        url: '/upute',
+        exactMatch: true,
+      },
+    ],
+  },
+];
