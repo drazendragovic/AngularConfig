@@ -1,0 +1,16 @@
+<div class="sifrarnik-pretraga-main flex flex-column flex-wrap w-full">
+  <app-page-header title="Šifrarnici"></app-page-header>
+  <div class="sifrarnik-content flex flex-column flex-wrap">
+    <div class="sifrarnik-pretraga flex-row align-items-center mt-5">
+      <form [formGroup]="formlyConfiguration.form">
+        <formly-form [model]="model" [fields]="formlyConfiguration.fields" [form]="formlyConfiguration.form" class="sifrarnik-filter"></formly-form>
+      </form>
+      <div class="sifrarnik-action">
+        <p-button class="add-sifra" (click)="addNewSifra()" icon="pi pi-plus" styleClass="p-button-rounded p-button-secondary mr-2 mt-2"></p-button>
+      </div>
+    </div>
+    <div class="sifarnici-table mt-5 p-5 border-1 border-200 border-round-2xl">
+      <sifrarnik-table [sifraID]="this.model.id" [dataSource]="dataSource"></sifrarnik-table>
+    </div>
+  </div>
+</div>

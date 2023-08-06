@@ -1,0 +1,9 @@
+<div class="p-fluid col-fixed">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+    <div class="button-row">
+      <button pButton pRipple label="SPREMI" type="submit" class="p-button-default p-button-primary btnWidth" icon="pi pi-search" iconPos="left"></button>
+      <button pButton pRipple label="PONIŠTI" class="p-button-secondary btnWidth" icon="pi pi-ban" iconPos="left" (click)="onCloseClick()"></button>
+    </div>
+  </form>
+</div>

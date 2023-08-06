@@ -1,0 +1,34 @@
+app-sifarnici {
+  display: flex;
+  flex: 1 0 auto;
+
+  p-scrollpanel {
+    width: 100%;
+    height: 90vh;
+
+    .sifarnici-table {
+      //width: 900px;
+      height: 400px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .clan-pretraga {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    form {
+      padding-bottom: 20px;
+    }
+    .field {
+      padding-right: 240px;
+    }
+    .addSifrarnik {
+      span {
+        color: #ffffff !important;
+        font-weight: 700;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

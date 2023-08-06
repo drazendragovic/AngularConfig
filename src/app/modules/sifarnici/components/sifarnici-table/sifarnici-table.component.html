@@ -1,0 +1,50 @@
+<p-table [value]="stavke" [tableStyle]="{ 'min-width': '10rem' }" [paginator]="true" [rowHover]="true" [rows]="5">
+  <ng-template pTemplate="header">
+    <tr>
+      <!-- To do: Promijeniti možda umjesto ngIf da gleda neki flag iz API-a za stupce koje će prikazivati - ili na odabir dropdowna da se setira -->
+      <th pSortableColumn="Sifra" *ngIf="stavke[0].Sifra">Sifra<p-sortIcon field="Sifra"></p-sortIcon></th>
+      <th pSortableColumn="Naziv" *ngIf="stavke[0].Naziv">Naziv<p-sortIcon field="Naziv"></p-sortIcon></th>
+      <th pSortableColumn="Aktivan" *ngIf="stavke[0].Aktivan">Aktivan<p-sortIcon field="Aktivan"></p-sortIcon></th>
+      <th pSortableColumn="DatumUnosa" *ngIf="stavke[0].DatumUnosa">Datum unosa<p-sortIcon field="DatumUnosa"></p-sortIcon></th>
+      <th pSortableColumn="DatumPromjeneStatusa" *ngIf="stavke[0].DatumPromjeneStatusa">Datum promjene statusa<p-sortIcon field="DatumPromjeneStatusa"></p-sortIcon></th>
+      <th pSortableColumn="OIB" *ngIf="stavke[0].OIB">OIB<p-sortIcon field="OIB"></p-sortIcon></th>
+      <th pSortableColumn="Kontakt" *ngIf="stavke[0].Kontakt">Kontakt<p-sortIcon field="Kontakt"></p-sortIcon></th>
+      <!-- <th pSortableColumn="Zupanija" *ngIf="stavke[0].Zupanija">Županija<p-sortIcon field="Zupanija"></p-sortIcon></th>
+      <th pSortableColumn="Grad" *ngIf="stavke[0].Grad">Grad<p-sortIcon field="Grad"></p-sortIcon></th>
+      <th pSortableColumn="PostanskiBroj" *ngIf="stavke[0].PostanskiBroj">Poštanski broj<p-sortIcon field="PostanskiBroj"></p-sortIcon></th>
+      <th pSortableColumn="Ulica" *ngIf="stavke[0].Ulica">Ulica<p-sortIcon field="Ulica"></p-sortIcon></th>
+      <th pSortableColumn="KucniBroj" *ngIf="stavke[0].KucniBroj">Kućni broj<p-sortIcon field="KucniBroj"></p-sortIcon></th>
+      <th pSortableColumn="Eposta" *ngIf="stavke[0].Eposta">E-pošta<p-sortIcon field="Eposta"></p-sortIcon></th> -->
+
+      <th pSortableColumn="RegistarskiBrojPodruznice" *ngIf="stavke[0].RegistarskiBrojPodruznice">Registarski broj podružnice<p-sortIcon field="RegistarskiBrojPodruznice"></p-sortIcon></th>
+      <th pSortableColumn="PripadnostOdborima" *ngIf="stavke[0].PripadnostOdborima">Pripadnost odborima<p-sortIcon field="PripadnostOdborima"></p-sortIcon></th>
+
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-stavka>
+    <tr>
+      <td *ngIf="stavke[0].Sifra">{{ stavka.Sifra }}</td>
+      <td *ngIf="stavke[0].Naziv">{{ stavka.Naziv }}</td>
+      <td *ngIf="stavke[0].Aktivan">{{ stavka.Aktivan }}</td>
+      <td *ngIf="stavke[0].DatumUnosa">{{ stavka.DatumUnosa }}</td>
+      <td *ngIf="stavke[0].DatumPromjeneStatusa">{{ stavka.DatumPromjeneStatusa }}</td>
+      <td *ngIf="stavke[0].OIB">{{ stavka.OIB }}</td>
+      <td *ngIf="stavke[0].Kontakt">{{ stavka.Kontakt }}</td>
+      <!-- <td *ngIf="stavke[0].Zupanija">{{ stavka.Zupanija }}</td>
+      <td *ngIf="stavke[0].Grad">{{ stavka.Grad }}</td>
+      <td *ngIf="stavke[0].PostanskiBroj">{{ stavka.PostanskiBroj }}</td>
+      <td *ngIf="stavke[0].Ulica">{{ stavka.Ulica }}</td>
+      <td *ngIf="stavke[0].KucniBroj">{{ stavka.KucniBroj }}</td>
+      <td *ngIf="stavke[0].Eposta">{{ stavka.Eposta }}</td> -->
+
+      <td *ngIf="stavke[0].RegistarskiBrojPodruznice">{{ stavka.RegistarskiBrojPodruznice }}</td>
+      <td *ngIf="stavke[0].PripadnostOdborima">{{ stavka.PripadnostOdborima }}</td>
+
+      <td class="tableButtons">
+        <button label=" " pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-button-text mr-2" (click)="editRedak(stavka)"></button>
+        <button label=" " pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning p-button-text" (click)="deleteRedak(stavka)"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

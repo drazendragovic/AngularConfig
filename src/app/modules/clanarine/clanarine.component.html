@@ -1,0 +1,11 @@
+<div class="clanarine-page flex flex-column flex-wrap w-full">
+  <app-page-header title="Evidencija članarina"></app-page-header>
+  <div class="clanarine-content flex flex-column flex-wrap mt-6">
+    <div class="clanarina-filter flex flex-wrap">
+      <clanarine-filter></clanarine-filter>
+    </div>
+    <div class="clanarina-table mt-5 p-5 border-1 border-200 border-round-2xl">
+      <clanarine-table [clanID]="this.clanID" [dataSource]="dataSource"></clanarine-table>
+    </div>
+  </div>
+</div>

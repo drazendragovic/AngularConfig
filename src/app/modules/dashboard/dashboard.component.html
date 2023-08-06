@@ -1,0 +1,45 @@
+<div class="dashboard-page flex flex-column flex-wrap w-full">
+  <app-page-header title="Dashboard"></app-page-header>
+  <div class="dashboard-content flex flex-wrap justify-content-evenly mt-6">
+    <p-card [style]="{ width: '260px' }">
+      <ng-template pTemplate="header">
+        <span>Ukupan broj članova</span>
+      </ng-template>
+      <span class="title">1.250</span>
+      <span class="subtitle">12%</span>
+      <ng-template pTemplate="footer">
+        <span>u nazad 180 dana</span>
+      </ng-template>
+    </p-card>
+    <p-card [style]="{ width: '260px' }">
+      <ng-template pTemplate="header">
+        <span>Predano zahtjeva za pozajmicu</span>
+      </ng-template>
+      <span class="title">250</span>
+      <span class="subtitle">12%</span>
+      <ng-template pTemplate="footer">
+        <span>u nazad 30 dana</span>
+      </ng-template>
+    </p-card>
+    <p-card [style]="{ width: '260px' }">
+      <ng-template pTemplate="header">
+        <span>Predano zahtjeva za Fond solidarnosti</span>
+      </ng-template>
+      <span class="title">50</span>
+      <span class="subtitle">2%</span>
+      <ng-template pTemplate="footer">
+        <span>u nazad 30 dana</span>
+      </ng-template>
+    </p-card>
+    <p-card [style]="{ width: '260px' }">
+      <ng-template pTemplate="header">
+        <span>Predano zahtjeva za pravnu pomoć</span>
+      </ng-template>
+      <span class="title">85</span>
+      <span class="subtitle">12%</span>
+      <ng-template pTemplate="footer">
+        <span>u nazad 30 dana</span>
+      </ng-template>
+    </p-card>
+  </div>
+</div>

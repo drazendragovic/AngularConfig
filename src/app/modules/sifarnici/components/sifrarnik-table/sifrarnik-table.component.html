@@ -1,0 +1,11 @@
+<s-table class="p-datatable-striped" [configuration]="tableConfiguration" scrollHeight="flex"></s-table>
+
+<p-confirmDialog #cd key="clanDeleteCancelConfirmation" [closable]="false" class="danger">
+  <ng-template pTemplate="header">
+    <span class="dialog-title">Brisanje člana</span>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button type="button" pButton class="p-button-default p-button-danger" icon="pi pi-trash" label="OBRIŠI" (click)="cd.accept()"></button>
+    <button type="button" pButton class="p-button-outlined p-button-secondary" icon="pi pi-ban" label="ODUSTANI" (click)="cd.reject()"></button>
+  </ng-template>
+</p-confirmDialog>

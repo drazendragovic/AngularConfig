@@ -1,0 +1,36 @@
+app-sifrarnici {
+  display: flex;
+  flex: 1 0 auto;
+
+  .sifrarnik-content {
+    .sifrarnik-pretraga {
+      position: relative;
+
+      form {
+        .sifrarnik-filter {
+          formly-group:not(.formgrid) {
+            display: flex;
+            flex-wrap: wrap;
+
+            .field {
+              width: 15rem;
+            }
+          }
+        }
+      }
+
+      .sifrarnik-action {
+        position: absolute;
+        top: -10px;
+        right: 0;
+
+        .add-sifra {
+          .p-button {
+            width: 3rem;
+            height: 3rem !important;
+          }
+        }
+      }
+    }
+  }
+}

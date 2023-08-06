@@ -1,0 +1,21 @@
+clanarine-filter {
+  form {
+    display: flex;
+
+    .clanarine-filter {
+      .formgrid {
+        display: flex;
+        flex-wrap: wrap;
+        width: 75rem;
+
+        formly-field {
+          padding: 0.5rem;
+        }
+      }
+    }
+
+    .filterAction {
+      padding-top: 0.5rem;
+    }
+  }
+}

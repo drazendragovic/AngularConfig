@@ -1,0 +1,7 @@
+<form [formGroup]="formlyConfiguration.form" (ngSubmit)="submit()">
+  <formly-form [model]="model" [fields]="formlyConfiguration.fields" [form]="formlyConfiguration.form" class="clanarine-filter"></formly-form>
+  <div class="filterAction ml-3">
+    <button pButton pRipple label="PRETRAŽI" type="submit" class="p-button-default p-button-primary mr-2" icon="pi pi-search" iconPos="left"></button>
+    <button pButton pRipple label="PONIŠTI" class="p-button-secondary" icon="pi pi-ban" iconPos="left"></button>
+  </div>
+</form>
