@@ -1,0 +1,167 @@
+/* Customizations to the designer theme should be defined here */
+.p-toolbar {
+  border: none;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.08), 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 1px 4px -1px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  background-color: $primaryColor;
+  color: $whiteColor;
+}
+
+.p-checkbox .p-checkbox-box .p-checkbox-icon {
+  color: #ffffff;
+}
+
+.p-checkbox-box {
+  padding-bottom: 0.2rem;
+
+  checkicon svg path {
+    stroke: white;
+    stroke-width: 2px;
+  }
+}
+
+.p-float-label label {
+  margin-top: -0.4rem;
+  font-size: 11px;
+}
+
+.p-float-label input:focus ~ label,
+.p-float-label input.p-filled ~ label,
+.p-float-label textarea:focus ~ label,
+.p-float-label textarea.p-filled ~ label,
+.p-float-label .p-inputwrapper-focus ~ label,
+.p-float-label .p-inputwrapper-filled ~ label {
+  top: -0.3rem;
+  font-size: 11px;
+  padding: 5px;
+  background-color: white;
+}
+
+.p-card {
+  .p-card-header {
+    height: 75px;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    text-align: center;
+    color: $primaryLightTextColor !important;
+  }
+  .p-card-body {
+    .p-card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 0;
+
+      .title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: $primaryTextColor !important;
+      }
+
+      .subtitle {
+        font-size: 1.7rem;
+        font-weight: 300;
+        color: $infoColor !important;
+      }
+    }
+
+    .p-card-footer {
+      padding: 1rem;
+      font-size: 0.9rem;
+      text-align: center;
+      color: $primaryLightTextColor !important;
+    }
+  }
+}
+
+.p-panel {
+  .p-panel-header {
+    border: none;
+    border-color: $primaryLightTextColor !important;
+    border-bottom: $panelHeaderBorder;
+    padding: 0.68rem;
+
+    .p-panel-header-icon:focus {
+      box-shadow: none;
+    }
+  }
+
+  .p-panel-content {
+    border: none;
+  }
+
+  .p-panel-footer {
+    border: none;
+  }
+}
+
+.p-button {
+  &.p-button-primary {
+    .p-button-icon {
+      color: $secondaryColor;
+    }
+  }
+  &.p-button-secondary:not(.p-button-text) {
+    .p-button-icon {
+      color: $whiteColor;
+    }
+  }
+  .p-button-label {
+    font-size: 12px;
+  }
+  &.p-autocomplete-dropdown {
+    color: #777777;
+    background: transparent;
+    border: 1px solid #ced4da;
+    border-left-color: transparent;
+  }
+}
+
+.p-icon-wrapper {
+  width: 10px;
+  height: 10px;
+}
+
+.p-dialog .p-dialog-header {
+  background-color: $secondaryColor;
+  color: $primaryColor;
+  padding: 1.2rem;
+}
+
+.p-autocomplete,
+.p-dropdown,
+.p-calendar {
+  width: 100%;
+}
+
+p-autocomplete {
+  .p-autocomplete-input {
+    border-right-color: transparent;
+  }
+}
+
+p-confirmdialog {
+  &.danger {
+    .p-confirm-dialog {
+      .p-dialog-header {
+        background-color: $dangerColor;
+        color: $whiteColor;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+      .p-dialog-content {
+        padding: 1rem;
+      }
+      .p-dialog-footer {
+        .p-button-outlined.p-button-secondary {
+          color: $primaryTextColor;
+          border-color: $primaryTextColor;
+          .p-button-icon {
+            color: $dangerColor;
+          }
+        }
+      }
+    }
+  }
+}
