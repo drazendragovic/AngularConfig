@@ -1,0 +1,19 @@
+<p-toolbar>
+  <div class="p-toolbar-group-start flex-column align-items-start">
+    <div class="flex-row m-2">
+      <span class="action-title pr-2">Status:</span>
+      <span class="action-data">AKTIVAN</span>
+    </div>
+    <div class="flex-row m-2">
+      <span class="action-title pr-2">Registarski broj:</span>
+      <span class="action-data">40000</span>
+    </div>
+  </div>
+  <div class="p-toolbar-group-end">
+    <p-button *ngIf="activeIndex === 0" class="change-history" icon="pi pi-history" styleClass="p-button-rounded p-button-text mr-2" (click)="prikaziPovijestPromjena()"></p-button>
+    <p-button *ngIf="activeIndex === 0" class="email" icon="pi pi-envelope" styleClass="p-button-rounded p-button-secondary mr-2" (click)="posaljiEmail()"></p-button>
+    <p-button *ngIf="activeIndex === 0" class="deactivate" icon="pi pi-ban" styleClass="p-button-rounded p-button-danger mr-2" (click)="deaktivirajClana()"></p-button>
+    <p-button *ngIf="activeIndex === 1" class="addFunkcija" icon="pi pi-plus" styleClass="p-button-rounded p-button-secondary mr-2" (click)="dodajFunkcijuClanu()"></p-button>
+    <p-button *ngIf="activeIndex === 2" class="addOdbor" icon="pi pi-plus" styleClass="p-button-rounded p-button-secondary mr-2" (click)="dodajOdborClanu()"></p-button>
+  </div>
+</p-toolbar>

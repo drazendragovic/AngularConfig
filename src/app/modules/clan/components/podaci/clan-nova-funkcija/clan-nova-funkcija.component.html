@@ -1,0 +1,17 @@
+<div class="nova-funkcija p-fluid col-fixed pt-4">
+  <form [formGroup]="formlyConfiguration.form">
+    <formly-form [form]="formlyConfiguration.form" [fields]="formlyConfiguration.fields" [model]="model" class="nova-funkcija-podaci"></formly-form>
+    <div class="nova-funkcija-actions flex justify-content-between mt-1 mb-2 p-1">
+      <button pButton pRipple label="SPREMI" type="submit" class="p-button-default p-button-primary mr-2" icon="pi pi-save" iconPos="left"></button>
+      <button
+        pButton
+        pRipple
+        label="PONIŠTI"
+        class="p-button-secondary"
+        icon="pi pi-ban"
+        iconPos="left"
+        (click)="onCancel('info', 'Unos nove funkcije', 'Odustali ste od unosa nove funkcije za člana')"
+      ></button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,9 @@
+<div class="novi-clan p-fluid col-fixed pt-4">
+  <form [formGroup]="formlyConfiguration.form">
+    <formly-form [form]="formlyConfiguration.form" [fields]="formlyConfiguration.fields" [model]="model" class="novi-clan-podaci"></formly-form>
+    <div class="novi-clan-actions flex">
+      <button pButton pRipple label="SPREMI" type="submit" class="p-button-default p-button-primary mr-2" icon="pi pi-save" iconPos="left"></button>
+      <button pButton pRipple label="PONIŠTI" class="p-button-secondary" icon="pi pi-ban" iconPos="left" (click)="onCancel('info', 'Unos novog člana', 'Odustali ste od unosa novog člana')"></button>
+    </div>
+  </form>
+</div>

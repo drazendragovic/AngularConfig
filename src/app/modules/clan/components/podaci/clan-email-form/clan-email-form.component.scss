@@ -1,0 +1,27 @@
+clan-email-form {
+  form {
+    .email-podaci {
+      formly-group:not(.formgrid) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+
+        .formgrid {
+          display: flex;
+          flex-wrap: wrap;
+          width: 36rem;
+
+          formly-field {
+            padding: 0.2rem;
+          }
+        }
+      }
+    }
+
+    .email-actions {
+      .p-button {
+        width: 8rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+clan-novi-odbor {
+  form {
+    .novi-odbor-podaci {
+      formly-group:not(.formgrid) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 36px;
+
+        .formgrid {
+          display: flex;
+          flex-wrap: wrap;
+          width: 22.5rem;
+
+          formly-field {
+            padding: 0.2rem;
+          }
+        }
+      }
+    }
+
+    .novi-odbor-actions {
+      .p-button {
+        width: 8rem;
+      }
+    }
+  }
+}

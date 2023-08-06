@@ -1,0 +1,18 @@
+<div class="clan-podaci-main flex flex-column flex-wrap w-full">
+  <div class="clan-podaci-actions flex flex-column flex-wrap">
+    <clan-podaci-actions [clanId]="clanID" [activeIndex]="activeindex"></clan-podaci-actions>
+  </div>
+  <div class="clan-podaci-content flex flex-row flex-wrap justify-content-between h-auto">
+    <clan-podaci-form [clanId]="clanID" class="flex mt-4"></clan-podaci-form>
+    <clan-podaci-evidencija-uplata [clanId]="clanID" class="flex mt-5 p-5 border-1 border-200 border-round-2xl"></clan-podaci-evidencija-uplata>
+  </div>
+</div>
+<p-confirmDialog #cd key="clanDisableCancelConfirmation" [closable]="false" class="danger">
+  <ng-template pTemplate="header">
+    <span class="dialog-title">Deaktivacija člana</span>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button type="button" pButton class="p-button-default p-button-danger" icon="pi pi-ban" label="DEAKTIVIRAJ" (click)="cd.accept()"></button>
+    <button type="button" pButton class="p-button-outlined p-button-secondary" icon="pi pi-times" label="ODUSTANI" (click)="cd.reject()"></button>
+  </ng-template>
+</p-confirmDialog>

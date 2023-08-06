@@ -1,0 +1,19 @@
+app-clan-podaci {
+  display: flex;
+  flex: 1 0 auto;
+
+  .clan-info {
+    .clan-info-title {
+      font-weight: 700;
+      color: #184171 !important;
+    }
+    .clan-info-data {
+      font-weight: 700;
+      color: #99d2ed !important;
+    }
+  }
+
+  p-scrollpanel {
+    width: 100%;
+  }
+}

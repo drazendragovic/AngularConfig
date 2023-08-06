@@ -1,0 +1,16 @@
+<div class="clan-pretraga-main flex flex-column flex-wrap w-full">
+  <app-page-header title="Pretraga članovi"></app-page-header>
+  <div class="pages-content flex flex-row flex-wrap">
+    <p-scrollPanel>
+      <div class="clan-pretraga">
+        <clan-pretraga-filter></clan-pretraga-filter>
+        <div>
+          <p-button class="addUser" (click)="addNewClan()" icon="pi pi-plus" styleClass="p-button-rounded p-button-secondary mr-2 mt-2"></p-button>
+        </div>
+      </div>
+      <div class="clanovi-table">
+        <clan-pretraga-table [clanID]="this.clanID" [dataSource]="dataSource"></clan-pretraga-table>
+      </div>
+    </p-scrollPanel>
+  </div>
+</div>

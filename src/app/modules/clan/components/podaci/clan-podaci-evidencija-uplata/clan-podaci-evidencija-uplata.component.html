@@ -1,0 +1,16 @@
+<div class="evidencija-uplta-table w-full relative">
+  <s-table class="p-datatable-striped" [configuration]="tableConfiguration" scrollHeight="flex"></s-table>
+  <div class="tableAction absolute bottom-0 right-0">
+    <button pButton pRipple label="NOVA UPLATA" type="submit" class="p-button-default p-button-primary mr-2" icon="pi pi-plus" iconPos="left" (click)="dodajUplatu()"></button>
+    <button pButton pRipple label="OSLOBODI ČLANARINE" class="p-button-secondary" icon="pi pi-minus" iconPos="left" (click)="oslobodiClanarine()"></button>
+  </div>
+</div>
+<p-confirmDialog #cd key="clanEvidencijaUplateDeleteCancelConfirmation" [closable]="false" class="danger">
+  <ng-template pTemplate="header">
+    <span class="dialog-title">Brisanje uplate</span>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button type="button" pButton class="p-button-default p-button-danger" icon="pi pi-trash" label="OBRIŠI" (click)="cd.accept()"></button>
+    <button type="button" pButton class="p-button-outlined p-button-secondary" icon="pi pi-ban" label="ODUSTANI" (click)="cd.reject()"></button>
+  </ng-template>
+</p-confirmDialog>

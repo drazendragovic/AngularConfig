@@ -1,0 +1,44 @@
+novi-clan {
+  form {
+    position: relative;
+
+    .novi-clan-podaci {
+      formly-group:not(.formgrid) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 36px;
+
+        .formgrid {
+          display: flex;
+          flex-wrap: wrap;
+          width: 21rem;
+
+          formly-field {
+            padding: 0.2rem;
+          }
+        }
+      }
+    }
+
+    .novi-clan-actions {
+      position: absolute;
+      bottom: 20px;
+      right: 0;
+
+      p-button {
+        .p-button {
+          width: 2.5rem;
+          height: 2.5rem !important;
+        }
+        span {
+          font-weight: 300;
+          font-size: 1.9rem;
+
+          &.pi-save {
+            color: #184171 !important;
+          }
+        }
+      }
+    }
+  }
+}

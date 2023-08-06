@@ -1,0 +1,29 @@
+clan-pretraga-filter {
+  form {
+    position: relative;
+
+    .pretraga-filter {
+      formly-group:not(.formgrid) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+
+        .formgrid {
+          display: flex;
+          flex-wrap: wrap;
+          width: 15rem;
+
+          formly-field {
+            padding: 0.2rem;
+          }
+        }
+      }
+    }
+
+    .filterAction {
+      position: absolute;
+      bottom: 20px;
+      right: 10px;
+    }
+  }
+}

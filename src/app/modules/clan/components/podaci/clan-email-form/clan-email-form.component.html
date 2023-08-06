@@ -1,0 +1,17 @@
+<div class="email-form p-fluid col-fixed pt-4">
+  <form [formGroup]="formlyConfiguration.form">
+    <formly-form [form]="formlyConfiguration.form" [fields]="formlyConfiguration.fields" [model]="model" class="email-podaci"></formly-form>
+    <div class="email-actions flex justify-content-between mt-1 mb-2 p-1">
+      <button pButton pRipple label="POŠALJI" type="submit" class="p-button-default p-button-primary mr-2" icon="pi pi-send" iconPos="left"></button>
+      <button
+        pButton
+        pRipple
+        label="ODUSTANI"
+        class="p-button-secondary"
+        icon="pi pi-ban"
+        iconPos="left"
+        (click)="onCancel('info', 'Slanje e-mail poruke', 'Odustali ste od slanja e-mail poruke')"
+      ></button>
+    </div>
+  </form>
+</div>

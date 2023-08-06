@@ -1,0 +1,17 @@
+<div class="novi-odbor p-fluid col-fixed pt-4">
+  <form [formGroup]="formlyConfiguration.form">
+    <formly-form [form]="formlyConfiguration.form" [fields]="formlyConfiguration.fields" [model]="model" class="novi-odbor-podaci"></formly-form>
+    <div class="novi-odbor-actions flex justify-content-between mt-1 mb-2 p-1">
+      <button pButton pRipple label="SPREMI" type="submit" class="p-button-default p-button-primary mr-2" icon="pi pi-save" iconPos="left"></button>
+      <button
+        pButton
+        pRipple
+        label="PONIŠTI"
+        class="p-button-secondary"
+        icon="pi pi-ban"
+        iconPos="left"
+        (click)="onCancel('info', 'Unos novog odbora', 'Odustali ste od unosa novog odbora za člana')"
+      ></button>
+    </div>
+  </form>
+</div>
