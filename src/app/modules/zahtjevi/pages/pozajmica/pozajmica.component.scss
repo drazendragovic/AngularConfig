@@ -1,0 +1,45 @@
+app-pozajmica {
+  display: flex;
+  flex: 1 0 auto;
+
+  .pozajmica {
+    //background-color: yellow;padding: 10px;
+  }
+  .pozajmica-labels {
+    //background-color: blue;
+    color: #99d2ed;
+    position: relative;
+    float: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .status-label {
+    color: #0fd10f;
+    float: right;
+    padding-left: 15px;
+  }
+  .reg-label {
+    color: #184171;
+    float: right;
+    padding-left: 15px;
+  }
+  .pozajmica-labels-icon {
+    padding-right: 30px;
+  }
+
+  fa-icon {
+    color: #184171;
+  }
+
+  .pozajmica-tabs {
+    //background-color: green;
+  }
+  .pozajmica-pretraga-tab {
+    //background-color: pink;
+  }
+  .pozajmica-zahtjev-tab {
+    //background-color: red;
+  }
+}

@@ -1,0 +1,40 @@
+fond-solidarnosti-zahtjev-form {
+  form {
+    position: relative;
+
+    .fond-zahtjev-podaci {
+      formly-group:not(.formgrid) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+
+        > formly-field:nth-child(3) {
+          flex-grow: 1;
+        }
+
+        > formly-field:nth-child(2) {
+          position: absolute;
+          top: 70px;
+          left: 0;
+        }
+
+        .formgrid {
+          display: flex;
+          flex-wrap: wrap;
+          width: 21rem;
+
+          &.opis {
+            width: 100%;
+          }
+
+          formly-field {
+            padding: 0.2rem;
+          }
+        }
+      }
+    }
+
+    .fond-zahtjev-action {
+    }
+  }
+}

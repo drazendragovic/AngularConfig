@@ -1,0 +1,20 @@
+<div class="form-wrapper w-full">
+  <form [formGroup]="formlyConfiguration.form">
+    <formly-form [form]="formlyConfiguration.form" [fields]="formlyConfiguration.fields" [model]="model" class="fond-zahtjev-podaci"></formly-form>
+    <div class="fond-zahtjev-footer flex align-items-end gap-6 mt-4">
+      <div class="fond-zahtjev-action w-21rem">
+        <button pButton pRipple label="POŠALJI" type="submit" class="p-button-default p-button-primary mr-2" icon="pi pi-send" iconPos="left"></button>
+        <button
+          pButton
+          pRipple
+          label="ODUSTANI"
+          class="p-button-secondary"
+          icon="pi pi-ban"
+          iconPos="left"
+          (click)="onCancel('info', 'Slanje zahtjeva', 'Odustali ste od slanja zahtjeva za dodjelu sredstva iz sindikalnog Fonda solidarnosti')"
+        ></button>
+      </div>
+      <fond-solidarnosti-zahtjev-prilozi [clanId]="clanId" class="flex flex-grow-1 p-5 ml-2 border-1 border-200 border-round-2xl"></fond-solidarnosti-zahtjev-prilozi>
+    </div>
+  </form>
+</div>

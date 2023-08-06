@@ -1,0 +1,20 @@
+app-pozajmica-pretraga {
+  display: flex;
+}
+
+.pretraga-container {
+  //formly form
+  flex: 1; //25%
+  //background-color: blue;
+  padding-right: 30px;
+  display: flex;
+}
+.pozajmica-pretraga-form-buttons {
+  //formly buttons
+}
+.table-container {
+  //table
+  flex: 4; //75%
+
+  //background-color: red;
+}

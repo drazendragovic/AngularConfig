@@ -1,0 +1,17 @@
+<div class="fond-solidarnosti-form p-fluid">
+  <form [formGroup]="formlyConfiguration.form">
+    <formly-form [form]="formlyConfiguration.form" [fields]="formlyConfiguration.fields" [model]="model" class="fond-solidarnosti-podaci"></formly-form>
+    <div class="fond-solidarnosti-actions flex flex justify-content-between mt-1 mb-2 p-1">
+      <button pButton pRipple label="PRETRAŽI" type="submit" class="p-button-default p-button-primary mr-2" icon="pi pi-search" iconPos="left"></button>
+      <button
+        pButton
+        pRipple
+        label="PONIŠTI"
+        class="p-button-secondary"
+        icon="pi pi-ban"
+        iconPos="left"
+        (click)="onCancel('info', 'Pretraga zahtjeva', 'Odustali ste od pretrage zahtjeva za dodjelu sredstva iz sindikalnog Fonda solidarnosti')"
+      ></button>
+    </div>
+  </form>
+</div>

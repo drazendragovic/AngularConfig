@@ -1,0 +1,21 @@
+<div class="pretraga-container">
+  <form [formGroup]="formlyConfiguration.form" (ngSubmit)="submit()">
+    <formly-form [model]="model" [fields]="formlyConfiguration.fields" [form]="formlyConfiguration.form" class="pozajmica-pretraga-form"></formly-form>
+    <div class="pozajmica-pretraga-form-buttons">
+      <button pButton pRipple label="PRETRAŽI" type="submit" class="p-button-default p-button-primary mr-2" icon="pi pi-search" iconPos="left"></button>
+      <button pButton pRipple label="PONIŠTI" class="p-button-secondary" icon="pi pi-ban" iconPos="left"></button>
+    </div>
+  </form>
+</div>
+<div class="table-container p-1 border-1 border-200 border-round-2xl">
+  <s-table class="p-datatable-striped" [configuration]="tableConfiguration" scrollHeight="flex"></s-table>
+  <p-confirmDialog #cd key="clanDeleteCancelConfirmation" [closable]="false" class="danger">
+    <ng-template pTemplate="header">
+      <span class="dialog-title">Brisanje člana</span>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <button type="button" pButton class="p-button-default p-button-danger" icon="pi pi-trash" label="OBRIŠI" (click)="cd.accept()"></button>
+      <button type="button" pButton class="p-button-outlined p-button-secondary" icon="pi pi-ban" label="ODUSTANI" (click)="cd.reject()"></button>
+    </ng-template>
+  </p-confirmDialog>
+</div>

@@ -1,0 +1,25 @@
+fond-solidarnosti-pretraga-form {
+  form {
+    position: relative;
+
+    .fond-solidarnosti-podaci {
+      formly-group:not(.formgrid) {
+        display: flex;
+        flex-wrap: wrap;
+
+        .formgrid {
+          display: flex;
+          flex-wrap: wrap;
+          width: 17rem;
+
+          formly-field {
+            padding: 0.2rem;
+          }
+        }
+      }
+    }
+
+    .fond-solidarnosti-actions {
+    }
+  }
+}

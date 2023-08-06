@@ -1,0 +1,15 @@
+app-fond-solidarnosti {
+  display: flex;
+  flex: 1 0 auto;
+
+  .fond-solidarnosti-info {
+    .fond-solidarnosti-info-title {
+      font-weight: 700;
+      color: #184171 !important;
+    }
+    .fond-solidarnosti-info-data {
+      font-weight: 700;
+      color: #99d2ed !important;
+    }
+  }
+}
